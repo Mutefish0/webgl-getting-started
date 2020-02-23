@@ -1,5 +1,5 @@
 
-// 把材质坐标传给顶点着色器
+// 顶点着色器
 var vertexShaderSource = `
   attribute vec3 a_Pos;
   attribute vec2 tex_Coord;
@@ -14,7 +14,7 @@ var vertexShaderSource = `
   }
 `;
 
-// 通过材质插值得到颜色
+// 片段着色器
 var fragShaderSource = `
   uniform sampler2D u_Texture;
   varying highp vec2 f_tex_Coord;
@@ -66,12 +66,12 @@ image.onload = function () {
 image.src = "./box.png";
 
 var vertics = [
-  // 后面
+  // 前面
   -0.5, 0.5, -0.5,      0.0, 1.0,   
   0.5, 0.5, -0.5,       1.0, 1.0,
   -0.5, -0.5, -0.5,     0.0, 0.0,
   0.5, -0.5, -0.5,      1.0, 0.0,
-  // 前面
+  // 后面
   -0.5, 0.5, 0.5,      0.0, 1.0,
   0.5, 0.5, 0.5,       1.0, 1.0,
   -0.5, -0.5, 0.5,     0.0, 0.0,
