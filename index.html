@@ -1,0 +1,45 @@
+<html>
+  <head>
+    <style>
+      #canv {
+        width: 400px;
+        height: 400px;
+      }
+      #fps {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        color: green;
+        font-size: 12px;
+      }
+    </style>
+  </head>
+  <canvas id="canv"></canvas>
+  <div id="fps"></div>
+  <script>
+    var canvas = document.getElementById("canv");
+    var gl;
+    var glExtensions;
+    if (window.WebGLRenderingContext) {
+      gl =
+        canvas.getContext("webgl") ||
+        canvas.getContext("experimental-webgl") ||
+        canvas.getContext("moz-webgl") ||
+        canvas.getContext("webkit-3d");
+      if (gl) {
+        gl.viewportWidth = canvas.width;
+        gl.viewportHeight = canvas.height;
+        glExtensions = gl.getSupportedExtensions();
+      } else {
+        throw new Error("WebGL功能被关闭");
+        alert("WebGL功能被关闭");
+      }
+    } else {
+      throw new Error("当前浏览器不支持WebGL");
+      alert("当前浏览器不支持WebGL");
+    }
+  </script>
+  <!-- <script src="./draw-a-triangle.js"></script> -->
+  <!-- <script src="./draw-a-square-with-texture.js"></script> -->
+  <script src="./draw-a-cube.js"></script>
+</html>
